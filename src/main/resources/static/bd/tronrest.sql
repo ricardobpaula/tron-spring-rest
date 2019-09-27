@@ -1,0 +1,10 @@
+DROP IF EXISTS tronrest;
+
+CREATE DATABASE tronrest;
+
+USE tronrest;
+
+CREATE TABLE produto(
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    sku VARCHAR(10),
+    nome VARHCAR(30));
