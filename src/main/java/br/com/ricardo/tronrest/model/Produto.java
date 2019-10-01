@@ -1,5 +1,7 @@
 package br.com.ricardo.tronrest.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,14 +10,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "produto")
-public class Produto {
+public class Produto implements Serializable {
+
+	private static final long serialVersionUID = 1;
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
 		
-		private String sku;
-		
+			
 		private String nome;
 
 		public Long getId() {
@@ -26,13 +29,6 @@ public class Produto {
 			this.id = id;
 		}
 
-		public String getSku() {
-			return sku;
-		}
-
-		public void setSku(String sku) {
-			this.sku = sku;
-		}
 
 		public String getNome() {
 			return nome;
