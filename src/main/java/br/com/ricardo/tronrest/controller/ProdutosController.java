@@ -55,11 +55,10 @@ public class ProdutosController {
 	 }
 
 	@RequestMapping(value = "produtos/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Object> editar(@PathVariable(value = "id")Long id, @Valid @RequestBody Produto newProduto) {
+	public ResponseEntity<Object> editar(@PathVariable(value = "id")Long id, @Valid @RequestBody Produto produto) {
 		
 		Optional<Produto> oldProduto = produtoRepository.findById(id);
 		if(oldProduto.isPresent()) {
-			Produto produto	= newProduto;
 			produto.setId(id);
 			produtoRepository.save(produto);
 			return new ResponseEntity<>(produto, HttpStatus.OK);
